@@ -1,0 +1,16 @@
+version: '3'
+services:
+  be:
+    image: 'registry.gitlab.com/justmeben/realive_panel/realive_panel_be'
+    ports:
+      - "5000:5000"
+    environment:
+        OAUTHLIB_INSECURE_TRANSPORT: 1
+  fe:
+    image: "registry.gitlab.com/justmeben/realive_panel/realive_panel_fe"
+    ports:
+        - "8012:80"
+  lb:
+    image: "registry.gitlab.com/justmeben/realive_panel/main_nginx"
+    ports:
+        - "80:80"
